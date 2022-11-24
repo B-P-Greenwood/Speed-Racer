@@ -20,8 +20,8 @@ Improved visuals, for both the game and the overall website. Add arcade console 
 
 ## Stretch goals 
 
--- Multiple levels which are identified by the different vechicles in the traffic and the background to the road 
--- different traffic has differnt route styles, ie. speed changes and will overtake other vehicles.
--- pot holes added as a danger to some levels 
--- road arches to add speed changes, slower going up the mound and faster on the other side 
+- Multiple levels which are identified by the different vechicles in the traffic and the background to the road 
+- different traffic has differnt route styles, ie. speed changes and will overtake other vehicles.
+- pot holes added as a danger to some levels 
+- road arches to add speed changes, slower going up the mound and faster on the other side 
 
