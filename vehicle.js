@@ -3,6 +3,9 @@ class Vehicle {
     this.frameX = 0;
     this.frameY = 0;
     this.fps = 20;
+    this.markedForDeletion = false;
+    this.frameInterval = 1000 / this.fps;
+    this.frameTimer = 0;
   }
   update(deltaTime) {
     this.x -= this.speedX + this.game.speed;
@@ -39,9 +42,12 @@ export class WhiteCar extends Vehicle {
     this.width = 110;
     this.height = 70;
     this.x = this.game.width;
-    this.y = this.game.height - this.height - this.game.groundMargin;
-    this.image = document.getElementById('vehicle.png');
-    this.speedX = 0;
+    this.y = Math.floor(Math.random() * 4 + 1) * 100;
+    this.image = document.getElementById('white');
+    this.speedX = Math.random() + 3;
     this.speedY = 0;
+  }
+  update(deltaTime) {
+    super.update(deltaTime);
   }
 }

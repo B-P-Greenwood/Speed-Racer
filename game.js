@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.margin = 80;
+      this.margin = 20;
       this.speed = 0;
       this.maxSpeed = 5;
       //background
@@ -20,18 +20,35 @@ document.addEventListener('DOMContentLoaded', function () {
       this.input = new InputHandler(this);
       //vehicles
       this.vehicles = [];
-
-      this.vehicles = 0;
+      this.vehicleTimer = 0;
       this.vehicleInterval = 1000;
       this.score = 0;
     }
     update(deltaTime) {
       this.player.update(this.input.keys, deltaTime);
+      if (this.vehicleTimer > this.vehicleInterval) {
+        this.addVehicle();
+        this.vehicleTimer = 0;
+      } else {
+        this.vehicleTimer += deltaTime;
+      }
+      this.vehicles.forEach((vehicle) => {
+        vehicle.update(deltaTime);
+        if (vehicle.markedForDeletion) {
+          this.vehicles.splice(this.vehicles.indexOf(vehicle), 1);
+        }
+      });
     }
     draw(context) {
       this.player.draw(context);
+      this.vehicles.forEach((vehicle) => {
+        vehicle.draw(context);
+      });
     }
-    addVehicle() {}
+    addVehicle() {
+      this.vehicles.push(new WhiteCar(this));
+      console.log(this.vehicles);
+    }
   }
 
   const game = new Game(canvas.width, canvas.height);

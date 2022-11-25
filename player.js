@@ -9,15 +9,14 @@ export class Player {
     this.frameX = 0;
     this.frameY = 0;
     this.image = document.getElementById('player');
-    this.speed = 0;
+    this.speed = 5;
     this.maxSpeed = 10;
   }
   update(input, deltaTime) {
-    this.checkCollision();
+    //this.checkCollision();
     //horizontal movement
-    this.x += this.speed;
-    if (input.includes('ArrowRight')) this.speed = this.maxSpeed;
-    else if (input.includes('ArrowLeft')) this.speed = -this.maxSpeed;
+    if (input.includes('ArrowRight')) this.x += this.speed;
+    else if (input.includes('ArrowLeft')) this.x -= this.speed;
     //keeps car in game screen
     if (this.x < 0) this.x = 0;
     if (this.x > this.game.width - this.width)
