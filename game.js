@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.vehicles.forEach((vehicle) => {
         vehicle.update(deltaTime);
         if (vehicle.markedForDeletion) {
+          console.log('here');
           this.vehicles.splice(this.vehicles.indexOf(vehicle), 1);
         }
       });
